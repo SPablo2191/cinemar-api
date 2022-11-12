@@ -7,5 +7,5 @@ def index():
     return 'mil programadores'
 
 @app.route('/gonza')
-def index():
+def gonza():
     return 'SIUUUUUUUUU'
