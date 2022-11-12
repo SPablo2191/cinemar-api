@@ -6,3 +6,6 @@ app = Flask(__name__)
 def index():
     return 'mil programadores'
 
+@app.route('/gonza')
+def index():
+    return 'SIUUUUUUUUU'
