@@ -1,23 +1,14 @@
 """CinemarAPI 
 @author: Pablo Sandoval
 """
-
 from flask import Flask
 from flask_cors import CORS
-import requests
+from resources.movie import movies
+from resources.room import rooms
 app = Flask(__name__)
-key = '1f54bd990f1cdfb230adb312546d765d'
 CORS(app)
-
-@app.route('/movies', methods=['GET'])
-def get_movies():
-    response = requests.get(f'https://api.themoviedb.org/3/movie/now_playing?api_key={key}&language=en-US')
-    return response.json()
-
-@app.route('/movies/<int:index>', methods=['GET'])
-def get_movie(index):
-    response = requests.get(f'https://api.themoviedb.org/3/movie/{str(index)}?api_key={key}&language=en-US')
-    return response.json()
-
-
+# Movies routes
+app.register_blueprint(movies)
+# Rooms routes
+app.register_blueprint(rooms)
 # app.run(debug=True)
