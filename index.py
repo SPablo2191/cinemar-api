@@ -3,9 +3,11 @@
 """
 
 from flask import Flask
+from flask_cors import CORS
 import requests
 app = Flask(__name__)
 key = '1f54bd990f1cdfb230adb312546d765d'
+CORS(app)
 
 @app.route('/movies', methods=['GET'])
 def get_movies():
