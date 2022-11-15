@@ -1,4 +1,5 @@
-"""CinemarAPI 
+"""
+CinemarAPI 
 @author: Pablo Sandoval
 """
 from flask import Flask
@@ -11,4 +12,4 @@ CORS(app)
 app.register_blueprint(movies)
 # Rooms routes
 app.register_blueprint(rooms)
-# app.run(debug=True)
+app.run(debug=True)
