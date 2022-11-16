@@ -1,14 +1,16 @@
 from flask import Blueprint,jsonify
+from database.models.Sala import Sala,TipoSala
+import json
 import datetime
 rooms = Blueprint('rooms',__name__)
+sala3D = TipoSala('3-D')
+
 @rooms.route('/rooms',methods=['GET'])
 def get_rooms():
-    return jsonify([])
-    # return jsonify([
-    #     {'idSala': 1,'nombre':'sala1','cantidadButacas': '10','fechaRegistro':datetime.datetime.now()},
-    #     {'idSala': 2,'nombre':'sala2','cantidadButacas': '20','fechaRegistro':datetime.datetime.now()},
-    #     {'idSala': 3,'nombre':'sala3','cantidadButacas': '30','fechaRegistro':datetime.datetime.now()},
-    #     {'idSala': 4,'nombre':'sala4','cantidadButacas': '40','fechaRegistro':datetime.datetime.now()}])
+    ejemplo = Sala(1,'Sala 1',20,sala3D.__dict__)
+    print(ejemplo)
+    return jsonify([ejemplo.__dict__])
+    
 @rooms.route('/rooms',methods=['POST'])
 def add_rooms():
     return jsonify([])
