@@ -17,6 +17,7 @@ def get_rooms():
 
 @rooms.route('/rooms',methods=['POST'])
 def add_rooms():
+    
     return jsonify([])
 @rooms.route('/rooms',methods=['PUT'])
 def update_rooms():
