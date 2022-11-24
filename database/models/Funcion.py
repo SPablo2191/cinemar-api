@@ -1,10 +1,11 @@
 import datetime
 class Funcion:
-    def __init__(self,sala,pelicula,horaFuncion=str(datetime.datetime.now().time()),fechaRegistro=datetime.datetime.now()):
+    def __init__(self,sala,pelicula,cantidadButacasDisponibles,fechaFuncion=datetime.datetime.now(),fechaRegistro=datetime.datetime.now()):
         self.sala = sala
         self.pelicula = pelicula
-        self.horaFuncion = horaFuncion
+        self.fechaFuncion = fechaFuncion
         self.fechaRegistro = fechaRegistro
+        self.cantidadButacasDisponibles = cantidadButacasDisponibles
 
     def __str__(self):
         return {
