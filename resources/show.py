@@ -3,7 +3,7 @@ from database.models.Funcion import Funcion
 from database.models.Sala import Sala, TipoSala
 sala3D = TipoSala('3-D').__dict__
 funciones = [
-    Funcion(Sala(1,'Sala 1',20,sala3D).__dict__,{'title' : 'Wakanda Forever'},20).__dict__
+    Funcion(Sala(1,'Sala 1',20,sala3D,300).__dict__,{'title' : 'Wakanda Forever'},20).__dict__
     ]
 
 
