@@ -27,8 +27,8 @@ class db():
 
 
 class dbQuery(db):
-    def select(self, table):
-        self.query(f"select * from {table}")
+    def select(self, table,condition=''):
+        self.query(f"select * from {table} {condition};")
         return self.cursor.fetchall()
 
     def insert(self, table, values):
@@ -36,10 +36,10 @@ class dbQuery(db):
 
 
 
-# create the sqlite database 
+# # create the sqlite database 
 # bdd = dbQuery('database\database.db')
-# create tables 
-# bdd.query("CREATE TABLE IF NOT EXISTS Usuario(idUsuario INTEGER,idTipoUsuario INTEGER,nombre VARCHAR(40),apellido VARCHAR(40),nombreUsuario VARCHAR(60),DNI VARCHAR(10),contrasena VARCHAR(20),correo VARCHAR(40),telefono VARCHAR(40),fechaRegistro DATE,fechaNacimiento DATE)")
+# # create tables 
+# bdd.query("CREATE TABLE IF NOT EXISTS Usuario(idUsuario INTEGER PRIMARY KEY,idTipoUsuario INTEGER,nombre VARCHAR(40),apellido VARCHAR(40),nombreUsuario VARCHAR(60),DNI VARCHAR(10),contrasena VARCHAR(20),correo VARCHAR(40),telefono VARCHAR(40),fechaRegistro DATE,fechaNacimiento DATE)")
 # bdd.query("CREATE TABLE IF NOT EXISTS Reserva(idReserva INTEGER PRIMARY KEY, idUsuario INTEGER,idFuncion INTEGER,idDescuento INTEGER,fechaRegistro DATE,total REAL,FOREIGN KEY(idUsuario) REFERENCES Usuario(idUsuario),FOREIGN KEY(idFuncion) REFERENCES Funcion(idFuncion),FOREIGN KEY(idDescuento) REFERENCES Descuento(idDescuento))")
 # bdd.query("CREATE TABLE IF NOT EXISTS Descuento(idDescuento INTEGER PRIMARY KEY, dia TEXT,porcentaje REAL)")
 # bdd.query("CREATE TABLE IF NOT EXISTS Funcion(idFuncion INTEGER PRIMARY KEY,idSala INTEGER, idPelicula INTEGER,fechaFuncion DATE,fechaRegistro DATE,cantidadButacasDisponible INTEGER,FOREIGN KEY(idPelicula) REFERENCES Pelicula(idPelicula),FOREIGN KEY(idSala) REFERENCES Sala(idSala))")
@@ -52,6 +52,6 @@ class dbQuery(db):
 # u = TipoUsuario()
 # bdd.insert(u,[(1,'Administrador')])
 # print(datetime.datetime.now())
-# bdd.insert(u1,[(1,1,'pablo', 'sandoval', 21, 43168585,'admin','123','ejemplo@gmail.com', '4210132',datetime.datetime.now())])
+# bdd.insert(u1,[(1,1,'pablo', 'sandoval','admin', '43168585','123','ejemplo@gmail.com', '4210132',datetime.datetime.now(),datetime.datetime.now())])
 # bdd.commit()
 # bdd.close()
