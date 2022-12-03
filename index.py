@@ -35,4 +35,4 @@ app.register_blueprint(reservations)
 # Users routes
 app.register_blueprint(users)
 
-app.run(debug=True)
+# app.run(debug=True)
