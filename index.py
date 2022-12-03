@@ -1,16 +1,25 @@
 """
 CinemarAPI 
 @author: Pablo Sandoval
+
 """
-from flask import Flask
+from flask import Flask,g
 from flask_cors import CORS
 from resources.movie import movies
 from resources.show import shows
 from resources.room import rooms
 from resources.reservation import reservations
 from resources.home import home
+from resources.user import users
 app = Flask(__name__)
 CORS(app)
+
+@app.teardown_request
+def teardown_request(exception):
+    db = getattr(g, 'db', None)
+    if db is not None:
+        db.close()
+
 # HOME route
 app.register_blueprint(home)
 # Movies routes
@@ -21,6 +30,7 @@ app.register_blueprint(shows)
 app.register_blueprint(rooms)
 # Reservations routes
 app.register_blueprint(reservations)
-
+# Users routes
+app.register_blueprint(users)
 
 # app.run(debug=True)
