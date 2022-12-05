@@ -7,7 +7,7 @@ table = ['Sala', 'tipoSala']
 
 @rooms.route('/rooms', methods=['GET'])
 def get_rooms():
-    aux = get_db().select(table[0])
+    aux = get_db().innerJoin(table[0],table[1])
     print(aux)
     return jsonify(aux)
 
@@ -40,7 +40,7 @@ def add_rooms():
         newSeats.append(tupleNewSeat)
     get_db().insert(newSeat, newSeats)
     get_db().commit()
-    return jsonify([])
+    return {'status':'Room registered succesfully'},200
 
 
 @rooms.route('/rooms', methods=['PUT'])

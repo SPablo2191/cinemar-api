@@ -12,7 +12,7 @@ class Usuario:
     #     self._fechaRegistro = fechaRegistro
     
     def __str__(self):
-        return "Usuario(idUsuario,idTipoUsuario,nombre,apellido,nombreUsuario,DNI,contrasena,correo,telefono,fechaRegistro,fechaNacimiento) values(?,?,?,?,?,?,?,?,?,?,?)"
+        return "Usuario(idTipoUsuario,nombre,apellido,nombreUsuario,DNI,contrasena,correo,telefono,fechaRegistro,fechaNacimiento,estado) values(?,?,?,?,?,?,?,?,?,?,?)"
 
 class TipoUsuario:
     def __str__(self) -> str:
