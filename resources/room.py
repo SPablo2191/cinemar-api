@@ -16,6 +16,11 @@ def get_rooms():
 def get_type_rooms():
     return jsonify(get_db().select(table[1]))
 
+@rooms.route('/rooms/seats', methods=['GET'])
+def get_seats():
+    id = request.args.get('id')
+    return jsonify(get_db().innerJoin('Butaca',table[0],'*',f'where Butaca.idSala={id}'))
+
 
 @rooms.route('/rooms/<int:id>', methods=['GET'])
 def get_room(id):

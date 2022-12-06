@@ -49,12 +49,12 @@ class dbQuery(db):
         innerquery = f"{table1} INNER JOIN {table2} on {table2}.id{table2}={table1}.id{table2}"
         return self.select(innerquery, columns, condition)
 
-    def innerJoinDynamic(self, tables,*keys, columns='*', condition=''):
-        """receive a list of table in order of 'inner relations' between them, where the first table is the one tha returns value"""
-        innerquery = f'{tables[0]} '
-        for i in range(1, len(tables)):
-            innerquery += f'inner join {tables[i]} on {tables[i]}.id{tables[i]}={tables[i-1]}.idSala '
-        return self.select(innerquery, columns, condition)
+    # def innerJoinDynamic(self, tables,*keys, columns='*', condition=''):
+    #     """receive a list of table in order of 'inner relations' between them, where the first table is the one tha returns value"""
+    #     innerquery = f'{tables[0]} '
+    #     for i in range(1, len(tables)):
+    #         innerquery += f'inner join {tables[i]} on {tables[i]}.id{tables[i]}={tables[i-1]}.idSala '
+    #     return self.select(innerquery, columns, condition)
 
 
 # # create the sqlite database
@@ -68,8 +68,8 @@ class dbQuery(db):
 # bdd.query("CREATE TABLE IF NOT EXISTS TipoSala(idTipoSala INTEGER PRIMARY KEY AUTOINCREMENT,nombre TEXT ,valor REAL)")
 # bdd.query("CREATE TABLE IF NOT EXISTS TipoUsuario(idTipoUsuario INTEGER PRIMARY KEY AUTOINCREMENT,nombre TEXT)")
 # bdd.query("CREATE TABLE IF NOT EXISTS Butaca(idButaca INTEGER PRIMARY KEY AUTOINCREMENT,idSala INTEGER,fila INTEGER,columna INTEGER,nombre TEXT,FOREIGN KEY(idSala) REFERENCES Sala(idSala))")
-# bdd.query("CREATE TABLE IF NOT EXISTS DetalleReserva(idDetalleReserva INTEGER PRIMARY KEY AUTOINCREMENT,idButaca INTEGER,estado INTEGER,FOREIGN KEY(idButaca) REFERENCES Butaca(idButaca))")
-# ts =TipoSala()
+# bdd.query("CREATE TABLE IF NOT EXISTS DetalleReserva(idDetalleReserva INTEGER PRIMARY KEY AUTOINCREMENT,idReserva INTEGER,idButaca INTEGER,estado INTEGER,FOREIGN KEY(idButaca) REFERENCES Butaca(idButaca),FOREIGN KEY(idReserva) REFERENCES Reserva(idReserva))")
+# ts =TipoSala('','')
 # bdd.insert(ts,[(1,'Sala-3D',300),(2,'Sala-2D',200)])
 # u1 = Usuario()
 # u = TipoUsuario()

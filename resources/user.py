@@ -14,8 +14,8 @@ def get_users():
 @users.route('/users', methods=['POST'])
 def auth():
     data = dict(request.get_json())
-    condition = f"where nombreUsuario LIKE'{data['nombreUsuario']}' AND contrasena LIKE '{data['contrasena']}'"
-    rows = get_db().select(table, condition)
+    condition = f"where nombreUsuario LIKE '{data['nombreUsuario']}' AND contrasena LIKE '{data['contrasena']}'"
+    rows = get_db().select(table,'*', condition)
     if rows == []:
         return {'error': 'username or password invalid'}, 401
     expires = datetime.timedelta(minutes=2)
