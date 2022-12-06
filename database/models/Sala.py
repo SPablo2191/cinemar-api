@@ -12,8 +12,9 @@ class Sala(BaseModel):
     def __str__(self):
         return 'Sala(idTipoSala,nombre,fechaRegistro,cantidadButacas,precio) values (?,?,?,?,?)'
 class TipoSala:
-    # def __init__(self,nombre):
-    #     self.nombre = nombre
+    def __init__(self,nombre,valor):
+        self.nombre = nombre
+        self.valor = valor
     def __str__(self) -> str:
         return 'TipoSala(idTipoSala,nombre,valor) values (?,?,?)'
 
