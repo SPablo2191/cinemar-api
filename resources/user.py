@@ -16,12 +16,13 @@ def auth():
     data = dict(request.get_json())
     condition = f"where nombreUsuario LIKE '{data['nombreUsuario']}' AND contrasena LIKE '{data['contrasena']}'"
     rows = get_db().select(table,'*', condition)
+    print(rows)
     if rows == []:
         return {'error': 'username or password invalid'}, 401
     expires = datetime.timedelta(minutes=2)
     access_token = create_access_token(
         identity=data['nombreUsuario'], expires_delta=expires)
-    return {'token': access_token}, 200
+    return {'token': access_token,'user':data['nombreUsuario'],'idUser':rows[0][0]}, 200
 
 
 # @users.route('/users', methods=['PUT'])

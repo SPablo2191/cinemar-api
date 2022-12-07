@@ -12,6 +12,7 @@ from resources.room import rooms
 from resources.reservation import reservations
 from resources.home import home
 from resources.user import users
+from resources.discount import discounts
 app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = 't1NP63m4wnBg6nyHYKfmc2TpCOGI4nss'
 jwt = JWTManager(app)
@@ -34,5 +35,6 @@ app.register_blueprint(rooms)
 app.register_blueprint(reservations)
 # Users routes
 app.register_blueprint(users)
-
+# Discounts routes
+app.register_blueprint(discounts)
 # app.run(debug=True)

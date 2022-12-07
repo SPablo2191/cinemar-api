@@ -62,7 +62,7 @@ class dbQuery(db):
 # # create tables
 # bdd.query("CREATE TABLE IF NOT EXISTS Usuario(idUsuario INTEGER PRIMARY KEY AUTOINCREMENT,idTipoUsuario INTEGER,nombre VARCHAR(40),apellido VARCHAR(40),nombreUsuario VARCHAR(60),DNI VARCHAR(10),contrasena VARCHAR(20),correo VARCHAR(40),telefono VARCHAR(40),fechaRegistro DATE,fechaNacimiento DATE,estado INTEGER)")
 # bdd.query("CREATE TABLE IF NOT EXISTS Reserva(idReserva INTEGER PRIMARY KEY AUTOINCREMENT, idUsuario INTEGER,idFuncion INTEGER,idDescuento INTEGER,fechaRegistro DATE,total REAL,estado INTEGER,FOREIGN KEY(idUsuario) REFERENCES Usuario(idUsuario),FOREIGN KEY(idFuncion) REFERENCES Funcion(idFuncion),FOREIGN KEY(idDescuento) REFERENCES Descuento(idDescuento))")
-# bdd.query("CREATE TABLE IF NOT EXISTS Descuento(idDescuento INTEGER PRIMARY KEY AUTOINCREMENT, dia TEXT,porcentaje REAL,estado INTEGER)")
+# bdd.query("CREATE TABLE IF NOT EXISTS Descuento(idDescuento INTEGER PRIMARY KEY AUTOINCREMENT, dia TEXT,porcentaje REAL,descripcion TEXT,estado INTEGER)")
 # bdd.query("CREATE TABLE IF NOT EXISTS Funcion(idFuncion INTEGER PRIMARY KEY AUTOINCREMENT,idSala INTEGER, idPelicula INTEGER,fechaFuncion DATE,fechaRegistro DATE,cantidadButacasDisponible INTEGER,estado INTEGER,nombrePelicula TEXT,FOREIGN KEY(idPelicula) REFERENCES Pelicula(idPelicula),FOREIGN KEY(idSala) REFERENCES Sala(idSala))")
 # bdd.query("CREATE TABLE IF NOT EXISTS Sala(idSala INTEGER PRIMARY KEY AUTOINCREMENT,idTipoSala INTEGER,nombre TEXT ,fechaRegistro DATE,cantidadButacas INTEGER,precio REAL,estado INTEGER,FOREIGN KEY(idTipoSala) REFERENCES TipoSala(idTipoSala))")
 # bdd.query("CREATE TABLE IF NOT EXISTS TipoSala(idTipoSala INTEGER PRIMARY KEY AUTOINCREMENT,nombre TEXT ,valor REAL)")

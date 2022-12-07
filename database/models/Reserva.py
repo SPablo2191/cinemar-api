@@ -3,7 +3,8 @@ import datetime
 
 
 class Reserva(BaseModel):
-    def __init__(self, idUsuario, idFuncion, idDescuento, total, estado=True, fechaRegistro=datetime.datetime.now()):
+    def __init__(self, idUsuario, idFuncion, idDescuento, total, estado=True, fechaRegistro=datetime.datetime.now(),idReserva = 0):
+        self.idReserva = idReserva
         self.idUsuario = idUsuario
         self.idFuncion = idFuncion
         self.idDescuento = idDescuento
@@ -18,4 +19,4 @@ class DetalleReserva(BaseModel):
         self.idButaca = idButaca
         self.estado = estado
     def __str__(self) -> str:
-        return 'DetalleReserva (idButaca,estado) values (?,?)'
+        return 'DetalleReserva (idReserva,idButaca,estado) values (?,?,?)'
