@@ -73,7 +73,7 @@ class dbQuery(db):
 # bdd.insert(ts,[(1,'Sala-3D',300),(2,'Sala-2D',200)])
 # u1 = Usuario()
 # u = TipoUsuario()
-# bdd.insert(u,[(1,'Administrador')])
+# bdd.insert(u,[(1,'Administrador'),(2,'Usuario')])
 # print(datetime.datetime.now())
 # bdd.insert(u1,[(1,'pablo', 'sandoval','admin', '43168585','123','ejemplo@gmail.com', '4210132',datetime.datetime.now(),datetime.datetime.now(),True)])
 # bdd.commit()

@@ -18,7 +18,6 @@ def get_discount_day():
 @discounts.route('/discounts', methods=['POST'])
 def add_discounts():
     data = dict(request.get_json())
-    print(data)
     newDiscount = Descuento(data['dia'],porcentaje=data['porcentaje'],descripcion=data['descripcion'])
     newTupleDiscount = newDiscount.__iter__(newDiscount.dia,newDiscount.porcentaje,newDiscount.descripcion,newDiscount.estado)
     get_db().insert(newDiscount,[newTupleDiscount])

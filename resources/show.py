@@ -16,7 +16,6 @@ def get_seats_of_show():
     id = request.args.get('id')
     seatsOfRoom = get_db().select('Butaca inner join Sala  on Sala.idSala = Butaca.idSala inner join Funcion on Funcion.idSala = Sala.idSala ','idButaca,fila,columna,Butaca.nombre',f'where idFuncion={id}')
     seatsAvailable = get_db().select('Butaca inner join DetalleReserva  on Butaca.idButaca = DetalleReserva.idButaca inner join Reserva on Reserva.idReserva = DetalleReserva.idReserva inner join Funcion on Reserva.idFuncion = Funcion.idFuncion','Butaca.idButaca',f'where Funcion.idFuncion={id}')
-    print(seatsAvailable)
     seatsOfShow  = []
     for item in seatsOfRoom:
         seat = list(item)

@@ -37,4 +37,4 @@ app.register_blueprint(reservations)
 app.register_blueprint(users)
 # Discounts routes
 app.register_blueprint(discounts)
-# app.run(debug=True)
+app.run(debug=True)

@@ -8,7 +8,6 @@ table = ['Sala', 'tipoSala']
 @rooms.route('/rooms', methods=['GET'])
 def get_rooms():
     aux = get_db().innerJoin(table[0],table[1])
-    print(aux)
     return jsonify(aux)
 
 
