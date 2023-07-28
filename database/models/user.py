@@ -2,7 +2,7 @@ from ..db import db
 import datetime
 
 
-class User(db.Document):
+class User(db.EmbeddedDocument):
     name = db.StringField(required=True)
     last_name = db.StringField(required=True)
     user_name = db.StringField(required=True, unique=True)
